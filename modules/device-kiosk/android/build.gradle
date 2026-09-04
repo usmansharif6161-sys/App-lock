@@ -1,0 +1,32 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+group = 'expo.modules.devicekiosk'
+version = '1.0.0'
+
+android {
+  namespace "expo.modules.devicekiosk"
+  compileSdkVersion safeExtGet("compileSdkVersion", 36)
+
+  defaultConfig {
+    minSdkVersion safeExtGet("minSdkVersion", 24)
+    targetSdkVersion safeExtGet("targetSdkVersion", 36)
+  }
+
+  lintOptions {
+    abortOnError false
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation project(':expo-modules-core')
+  implementation "androidx.core:core-ktx:1.15.0"
+}
+
+def safeExtGet(prop, fallback) {
+  rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}

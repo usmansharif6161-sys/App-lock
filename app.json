@@ -4,16 +4,17 @@
     "slug": "installment-customer",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/customer.png",
     "scheme": "installmentcustomer",
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon"
     },
     "android": {
+      "package": "com.installment.customer",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundColor": "#FFFFFF",
+        "foregroundImage": "./assets/images/customer.png",
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
@@ -32,7 +33,25 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }
-      ]
+      ],
+      "expo-sqlite",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to scan installment QR codes",
+          "barcodeScannerEnabled": true,
+          "recordAudioAndroid": false
+        }
+      ],
+      [
+        "expo-navigation-bar",
+        {
+          "enforceContrast": false,
+          "style": "dark"
+        }
+      ],
+      "./plugins/withDeviceOwner.js",
+      "expo-status-bar"
     ],
     "experiments": {
       "typedRoutes": true,
